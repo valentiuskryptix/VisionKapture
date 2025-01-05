@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'django_tenants',
     'django.contrib.admin',
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,7 +39,33 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "DemoAPP",
+    'core',
 ]
+
+# TENANT_APPS = [
+#     'core',  # Add your app here, which contains the Institution model
+#     # Other apps that are tenant-specific
+# ]
+#
+# SHARED_APPS = (
+#     'django_tenants',
+#     'django.contrib.contenttypes',
+#     'django.contrib.auth',
+#     'django.contrib.sessions',
+#     'django.contrib.admin',
+#     'django.contrib.messages',
+#     'django.contrib.staticfiles',
+#     # Any other apps that are shared across tenants
+# )
+#
+#
+# TENANT_MODEL = "core.Institution"  # The Institution model
+# TENANT_DOMAIN_MODEL = "core.Domain"  # Replace "core" with the name of your app if it's different
+#
+# DATABASE_ROUTERS = ['django_tenants.routers.TenantSyncRouter']
+# DEFAULT_FILE_STORAGE = 'django_tenants.storage.TenantFileSystemStorage'
+
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -48,6 +75,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # 'core.middleware.TenantMiddleware',
 ]
 
 ROOT_URLCONF = "VisionKapture.urls"
